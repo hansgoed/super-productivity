@@ -21,7 +21,8 @@
     vm.task = task;
 
     vm.assignTicket = () => {
-      Jira.updateAssignee(task, $localStorage.jiraSettings.userName)
+      let username = $localStorage.jiraSettings.useInternalName ? $localStorage.jiraSettings.internalName : $localStorage.jiraSettings.userName;
+      Jira.updateAssignee(task, username)
         .then($mdDialog.hide, $mdDialog.cancel);
       $mdDialog.hide();
     };

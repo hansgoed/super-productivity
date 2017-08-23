@@ -45,6 +45,16 @@
       <input type="password"
              ng-model="vm.settings.password">
     </md-input-container>
+    <md-switch ng-model="vm.settings.useInternalName"
+               aria-label="Use your internal name as username">
+      If you use an Atlassian ID to login your username in JIRA might not match your login username
+    </md-switch>
+    <md-input-container class="md-block">
+      <label>JIRA username</label>
+      <input type="text"
+             ng-disabled="!vm.settings.useInternalName"
+             ng-model="vm.settings.internalName">
+    </md-input-container>
     <md-input-container class="md-block">
       <label>JQL Query for Searching Tasks</label>
       <input type="text"
