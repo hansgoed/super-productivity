@@ -163,6 +163,7 @@
         originalType: ISSUE_TYPE,
         originalKey: issue.key,
         originalAssigneeKey: issue.fields.assignee && issue.fields.assignee.key.toString(),
+        assignee: issue.fields.assignee,
         originalComments: Jira.mapComments(issue),
         originalId: issue.id,
         originalUpdated: issue.fields.updated,

@@ -390,7 +390,8 @@
 
               this.Jira.checkUpdatesForTaskOrParent(task)
                 .then(() => {
-                  if (!jiraTaskToHandle.originalAssigneeKey || jiraTaskToHandle.originalAssigneeKey !== this.$localStorage.jiraSettings.userName) {
+                  let assigneeKey = this.$localStorage.jiraSettings.useInternalName ? this.$localStorage.jiraSettings.internalName : this.$localStorage.jiraSettings.userName;
+                  if (!jiraTaskToHandle.originalAssigneeKey || ((jiraTaskToHandle.originalAssigneeKey !== assigneeKey) && (jiraTaskToHandle.assignee.username !== assigneeKey))) {
                     // ask if to assign to yourself or just ignore it
                     this.Dialogs('JIRA_ASSIGN_TICKET', { task: jiraTaskToHandle })
                       .then(() => {
