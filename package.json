@@ -10,7 +10,8 @@
   "homepage": "http://super-productivity.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=DEV electron ./electron/main.js",
+    "start": "node ./electron/main.js",
+    "debug": "node $NODE_DEBUG_OPTION ./electron/main.js",
     "pack": "build --dir",
     "localInstall": "sudo echo 'Starting local install' && rm -Rf ./dist/ && gulp build && build && sudo dpkg -i dist/superProductivity*.deb",
     "dist": "gulp build && build"
@@ -45,8 +46,9 @@
     "browser-sync": "latest",
     "del": "latest",
     "ecstatic": "latest",
-    "electron": "git+ssh://git@github.com/johannesjo/electron-prebuilt.git",
+    "electron": "latest",
     "electron-builder": "^19.24.1",
+    "extract-zip": "1.6.0",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-babel": "^6.1.2",

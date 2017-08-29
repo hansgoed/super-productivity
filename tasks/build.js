@@ -88,7 +88,7 @@ gulp.task('minFiles', function () {
     //.pipe(useref({}, lazypipe()
     //  .pipe(sourcemaps.init, { loadMaps: true })))
     .pipe(gulpif(/scripts\.js/, babel()))
-    .pipe(gulpif(/\.js$/, uglify({ preserveComments: 'license' })))
+    .pipe(gulpif(/\.js$/, uglify()))
     .pipe(gulpif(/\.css$/, cleanCSS()))
     //.pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest(config.dist));
